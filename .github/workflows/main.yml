@@ -8,14 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Root Cache APT Packages
+        # You may pin to the exact commit or the version.
+        # uses: CorrM/cache-apt-pkgs-action@085f47e9a790791a4f706e9d124530bb6afae218
+        uses: CorrM/cache-apt-pkgs-action@v1.0.3
+        with:
+          # Space delimited list of packages to install. Version can be specified optionally using APT command syntax of <name>=<version> (e.g. xdot=1.2-2).
+          packages: texlive-latex-extra pandoc ruby-full rake
       - name: Compile tutorial
         run: |
           git clone https://github.com/ToshioCP/Gtk4-tutorial.git
           cd Gtk4-tutorial
-          sudo apt install -y texlive-latex-extra
-          sudo apt install -y pandoc ruby-full rake
           rake html
-          zip -r ../artfact.zip docs
+          zip -r ../artifact.zip docs
           echo "FIRST"
           pwd
           ls
