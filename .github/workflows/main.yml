@@ -1,4 +1,4 @@
-name: Run
+name: Compile
 
 on:
   workflow_dispatch:
@@ -12,18 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Convert deb to IPA
+      - name: Compile tutorial
         run: |
           git clone https://github.com/ToshioCP/Gtk4-tutorial.git
           cd Gtk4-tutorial
           sudo apt install -y texlive-latex-extra
           sudo apt install -y pandoc ruby-full rake
           rake html
-          ls 
-          ls docs
+          zip -r ../artfact.zip docs
           
-      - name: Upload IPA
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: App
-          path: ${{ github.workspace }}/docs/*.html
+          name: artifact
+          path: ${{ github.workspace }}/artifact.zip
