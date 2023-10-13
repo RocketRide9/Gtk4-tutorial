@@ -17,8 +17,10 @@ jobs:
           git clone https://github.com/ToshioCP/Gtk4-tutorial.git
           cd Gtk4-tutorial
           sudo apt install -y texlive-latex-extra
-          sudo apt install -y pandoc
+          sudo apt install -y pandoc ruby-full rake
           rake html
+          ls 
+          ls docs
           
       - name: Upload IPA
         uses: actions/upload-artifact@v3.1.0
