@@ -1,11 +1,7 @@
 name: Compile
 
 on:
-  workflow_dispatch:
-    inputs:
-      deb:
-        description: "Direct URL to deb file"
-        required: true
+  push
 
 jobs:
   run:
