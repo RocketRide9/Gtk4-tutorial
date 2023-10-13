@@ -16,8 +16,8 @@ jobs:
         run: |
           git clone https://github.com/ToshioCP/Gtk4-tutorial.git
           cd Gtk4-tutorial
-          apt install -y texlive-latex-extra
-          apt install -y pandoc
+          sudo apt install -y texlive-latex-extra
+          sudo apt install -y pandoc
           rake pdf
           
       - name: Upload IPA
