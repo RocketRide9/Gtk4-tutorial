@@ -18,7 +18,7 @@ jobs:
           cd Gtk4-tutorial
           sudo apt install -y texlive-latex-extra
           sudo apt install -y pandoc
-          rake pdf
+          rake html
           
       - name: Upload IPA
         uses: actions/upload-artifact@v3.1.0
