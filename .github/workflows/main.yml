@@ -24,10 +24,6 @@ jobs:
           echo "FIRST"
           pwd
           ls
-          cd ..
-          echo "SECOND"
-          pwd
-          ls
   
       - name: Upload Artifact
         uses: actions/upload-artifact@v3.1.0
